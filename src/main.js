@@ -18,7 +18,7 @@ form.addEventListener('submit', async function (event) {
 
   if (inputValue === '') {
     iziToast.show({
-      title: 'Form field must be filled in!',
+      message: 'Form field must be filled in!',
       titleColor: 'red',
       position: 'topRight',
     });
@@ -30,20 +30,21 @@ form.addEventListener('submit', async function (event) {
 
   try {
     const response = await getImagesByQuery(inputValue);
-    const images = response.hits;
+    const images = response.hits || [];
 
     if (images.length > 0) {
       createGallery(images);
     } else {
       iziToast.show({
-        title: 'Try another way',
+        message: 'Try another way',
         titleColor: 'red',
         position: 'topRight',
       });
     }
   } catch (error) {
     iziToast.show({
-      title: 'Poor internet connection.',
+      message:
+        'Something went wrong. Please check your connection or try again later.',
       titleColor: 'red',
       position: 'topRight',
     });
@@ -53,4 +54,3 @@ form.addEventListener('submit', async function (event) {
     form.reset();
   }
 });
-// комент

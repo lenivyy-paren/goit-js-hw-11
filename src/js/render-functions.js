@@ -56,10 +56,9 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-  loader.style.display = 'block';
+  loader.classList.add('visible');
 }
 
 export function hideLoader() {
-  loader.style.display = 'none';
+  loader.classList.remove('visible');
 }
-// комент
