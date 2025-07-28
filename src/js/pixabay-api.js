@@ -18,3 +18,5 @@ export default function getImagesByQuery(query) {
       return null;
     });
 }
+
+//комент
